@@ -64,7 +64,7 @@ export class MapComponent implements AfterViewInit {
  private getEstados()
  {
   this.dataApiService.getEstados().subscribe((estados: any) => {
-    this.arrEstados = estados.content;
+    this.arrEstados = estados;
    });
 
  }
