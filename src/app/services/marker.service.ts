@@ -26,7 +26,7 @@ export class MarkerService {
               icon: L.icon({
               iconSize: [ 25, 41 ],
               iconAnchor: [ 13, 41 ],
-              iconUrl: 'assets/'+ actividad  + '.png',
+              iconUrl: 'assets/5221100.png',
               shadowUrl: 'assets/marker-shadow.png'
               })
             }); 

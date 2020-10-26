@@ -10,7 +10,7 @@
       </select>
      
        <b> Municipio </b>
-       <select  name="selectedMunicipio" id="selectedMunicipio" [(ngModel)]="selectedMunicipio">
+       <select  name="selectedMunicipio" id="selectedMunicipio" [(ngModel)]="selectedMunicipio" (change)="changeMunicipio()">
         <option *ngFor="let mun of arrMunicipios; let i = index" [value]="mun.idmunicipio">
           {{mun.municipio}}
         </option>

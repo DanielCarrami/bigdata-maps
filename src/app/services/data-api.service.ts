@@ -16,7 +16,7 @@ export class DataApiService {
  
 
   //apiURL = 'http://localhost:10010/';
-  apiURL = 'https://valid-decoder-258800.appspot.com/';
+  apiURL = 'http://localhost:8080/api/auth/';
   
   
   constructor(
@@ -39,7 +39,7 @@ export class DataApiService {
   
   getEstados(): Observable<Estados> {
     console.log("estados: " + this.apiURL);
-    return this.http.get<Estados>(this.apiURL + 'entidades', this.httpOptions)
+    return this.http.get<Estados>(this.apiURL + 'estados', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -50,7 +50,7 @@ export class DataApiService {
 
   getMunicipios(idestado): Observable<Municipios> {
     console.log("municipios: " + this.apiURL);
-    return this.http.get<Municipios>(this.apiURL + 'municipios?entidad=' + idestado, this.httpOptions)
+    return this.http.get<Municipios>(this.apiURL + 'municipios?idestado=' + idestado, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -59,8 +59,8 @@ export class DataApiService {
 
 
   getUnidades(): Observable<Unidades> {
-    console.log("unidades: " + this.apiURL);
-    return this.http.get<Unidades>(this.apiURL + 'bancos', this.httpOptions)
+    console.log("empresas: " + this.apiURL);
+    return this.http.get<Unidades>(this.apiURL + 'categorias', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -70,8 +70,8 @@ export class DataApiService {
 
   getDenues(idestado, idmunicipio, tipo): Observable<Denues> {
     console.log("denues: " + this.apiURL + idestado);
-    return this.http.get<Denues>(this.apiURL + 'denues?entidad=' + idestado +
-    '&municipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+    return this.http.get<Denues>(this.apiURL + 'empresas?idestado=' + idestado +
+    '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
