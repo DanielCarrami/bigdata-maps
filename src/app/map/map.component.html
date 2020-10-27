@@ -28,7 +28,96 @@
 
 </label>
 </div>
+<div> 
+        
+  <label class="container"> 
+       <b> Estado </b>
+         
+       <select  name="selectedEstadoEsc" id="selectedEstadoEsc" [(ngModel)]="selectedEstadoEsc" (change)="changeEstadoEsc();">
+        <option *ngFor="let edo of arrEstados; let i = index" [value]="edo.idestado">
+          {{edo.estado}}
+        </option>
+      </select>
+     
+       <b> Municipio </b>
+       <select  name="selectedMunicipioEsc" id="selectedMunicipioEsc" [(ngModel)]="selectedMunicipioEsc" (change)="changeMunicipio()">
+        <option *ngFor="let mun of arrMunicipiosEsc; let i = index" [value]="mun.idmunicipio">
+          {{mun.municipio}}
+        </option>
+      </select>
 
+      
+       <b> Institución Educativa </b>
+       <select  name="selectedCatEsc" id="selectedCatEsc" [(ngModel)]="selectedCatEsc">
+        <option *ngFor="let uni of arrEscuelaCat; let i = index" [value]="uni.tipo">
+          {{uni.descripcion}}
+        </option>
+      </select>
+      {{selectedCatEsc}}
+      <button (click)="buscarEscuelas()" type=”button”>Buscar</button>
+
+</label>
+</div>
+<div> 
+        
+  <label class="container"> 
+       <b> Estado </b>
+         
+       <select  name="selectedEstadoCom" id="selectedEstadoCom" [(ngModel)]="selectedEstadoCom" (change)="changeEstadoCom();">
+        <option *ngFor="let edo of arrEstados; let i = index" [value]="edo.idestado">
+          {{edo.estado}}
+        </option>
+      </select>
+     
+       <b> Municipio </b>
+       <select  name="selectedMunicipioCom" id="selectedMunicipioCom" [(ngModel)]="selectedMunicipioCom" (change)="changeMunicipio()">
+        <option *ngFor="let mun of arrMunicipiosCom; let i = index" [value]="mun.idmunicipio">
+          {{mun.municipio}}
+        </option>
+      </select>
+
+      
+       <b> Categoria comercial </b>
+       <select  name="selectedCatCom" id="selectedcatCom" [(ngModel)]="selectedCatCom">
+        <option *ngFor="let uni of arrComercioCat; let i = index" [value]="uni.tipo">
+          {{uni.descripcion}}
+        </option>
+      </select>
+      {{selectedCatCom}}
+      <button (click)="buscarComercios()" type=”button”>Buscar</button>
+
+</label>
+</div>
+<div> 
+        
+  <label class="container"> 
+       <b> Estado </b>
+         
+       <select  name="selectedEstadoHosp" id="selectedEstadoHosp" [(ngModel)]="selectedEstadoHosp" (change)="changeEstadoHosp();">
+        <option *ngFor="let edo of arrEstados; let i = index" [value]="edo.idestado">
+          {{edo.estado}}
+        </option>
+      </select>
+     
+       <b> Municipio </b>
+       <select  name="selectedMunicipioHosp" id="selectedMunicipioHosp" [(ngModel)]="selectedMunicipioHosp" (change)="changeMunicipio()">
+        <option *ngFor="let mun of arrMunicipiosHosp; let i = index" [value]="mun.idmunicipio">
+          {{mun.municipio}}
+        </option>
+      </select>
+
+      
+       <b> Servicio de salud </b>
+       <select  name="selectedCatHosp" id="selectedCatHosp" [(ngModel)]="selectedCatHosp">
+        <option *ngFor="let uni of arrHospitalCat; let i = index" [value]="uni.tipo">
+          {{uni.descripcion}}
+        </option>
+      </select>
+      {{selectedCatHosp}}
+      <button (click)="buscarHospital()" type=”button”>Buscar</button>
+
+</label>
+</div>
 <div class="map-container">
   <div class="map-frame">
     <div id="map"></div>

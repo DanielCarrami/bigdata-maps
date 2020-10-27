@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../services/marker.service';
 import { DataApiService } from '../services/data-api.service';
+import { Unidades } from '../models/unidades';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -31,9 +32,30 @@ export class MapComponent implements AfterViewInit {
   selectedMunicipio;
   selectedUnidad;
 
+  selectedEstadoEsc;
+  selectedMunicipioEsc;
+  selectedCatEsc;
+
+  selectedEstadoCom;
+  selectedMunicipioCom;
+  selectedCatCom;
+
+  selectedEstadoHosp;
+  selectedMunicipioHosp;
+  selectedCatHosp;
+
   arrEstados = [];
   arrMunicipios = [];
+  arrMunicipiosEsc = [];
+  arrMunicipiosHosp = [];
+  arrMunicipiosCom = [];
   arrActividades = [];
+  arrEscuelaCat = [];
+  arrEscuelas = [];
+  arrComercioCat = [];
+  arrComercio = [];
+  arrHospitalCat = [];
+  arrHospital = [];
 
   constructor(private markerService: MarkerService,
     private dataApiService: DataApiService
@@ -45,6 +67,9 @@ export class MapComponent implements AfterViewInit {
     //this.markerService.makeCapitalMarkers(this.map);
     this.getEstados();
     this.getUnidades();
+    this.getEscuelaCat();
+    this.getComercioCat();
+    this.getHospitalCat();
   }
 
   private initMap(): void {
@@ -76,17 +101,64 @@ export class MapComponent implements AfterViewInit {
    });
  
  }
+
+ private getEscuelaCat()
+ {
+   this.dataApiService.getEscuelaCat().subscribe((unidades: any) => {
+    this.arrEscuelaCat = unidades.content;
+   });
+ }
+
+ private getComercioCat()
+ {
+   this.dataApiService.getComercioCat().subscribe((unidades: any) => {
+     this.arrComercioCat = unidades.content
+   });
+ }
+
+ private getHospitalCat()
+ {
+   this.dataApiService.getHospitalCat().subscribe((unidades: any) => {
+     this.arrHospitalCat = unidades.content
+   });
+ }
  
  private changeEstado()
  {
    this.dataApiService.getMunicipios(this.selectedEstado)
    .subscribe((municipios: any) => {
     this.arrMunicipios = municipios;
+   });
+ 
+ }
 
+ private changeEstadoEsc()
+ {
+   this.dataApiService.getMunicipios(this.selectedEstadoEsc)
+   .subscribe((municipios: any) => {
+    this.arrMunicipiosEsc = municipios;
+   });
+ 
+ }
+
+ private changeEstadoCom()
+ {
+   this.dataApiService.getMunicipios(this.selectedEstadoCom)
+   .subscribe((municipios: any) => {
+    this.arrMunicipiosCom = municipios;
    });
  
  }
  
+ private changeEstadoHosp()
+ {
+   this.dataApiService.getMunicipios(this.selectedEstadoHosp)
+   .subscribe((municipios: any) => {
+    this.arrMunicipiosHosp = municipios;
+   });
+ 
+ }
+
  private changeMunicipio()
  {
   console.log(this.selectedEstado);
@@ -96,14 +168,41 @@ export class MapComponent implements AfterViewInit {
 
  private buscarDenues()
  {
-
   this.markerService.makeDenuesMarkers(this.map,
     this.selectedEstado,
     this.selectedMunicipio,
     this.selectedUnidad
     );
-
  }
 
+ private buscarEscuelas()
+ {
+  this.markerService.makeEscuelasMarkers(this.map,
+    this.selectedEstadoEsc,
+    this.selectedMunicipioEsc,
+    this.selectedCatEsc
+    );
+ }
+
+ private buscarComercios()
+ {
+  this.markerService.makeComercioMarkers(this.map,
+    this.selectedEstadoCom,
+    this.selectedMunicipioCom,
+    this.selectedCatCom
+    );
+ }
+
+ private buscarHospital()
+ {
+   console.log("Estado: " + this.selectedEstadoHosp);
+   console.log("Municipio: " + this.selectedMunicipioHosp);
+   console.log("Cat: " + this.selectedCatHosp);
+  this.markerService.makeHospitalMarkers(this.map,
+    this.selectedEstadoHosp,
+    this.selectedMunicipioHosp,
+    this.selectedCatHosp
+    );
+ }
  
 }

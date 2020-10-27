@@ -40,6 +40,75 @@ export class MarkerService {
     
   }
 
+  makeEscuelasMarkers(map: L.map, idestado, idmunicipio, actividad): void {
+   
+    this.dataApiService.getEscuela(idestado, idmunicipio, actividad).subscribe((res: any) => {
+      for (const c of res) {
+        const lat = parseFloat(c.lat);
+        const lon = parseFloat(c.lng);
+        const marker = L.marker([lat, lon],
+          {
+            icon: L.icon({
+            iconSize: [ 25, 41 ],
+            iconAnchor: [ 13, 41 ],
+            iconUrl: 'assets/blue.png',
+            shadowUrl: 'assets/marker-shadow.png'
+            })
+          }); 
+
+        marker.bindPopup(this.popupService.makeDenuesPopup(c));
+        marker.addTo(map);
+
+      }
+    });
+  }
+
+  makeComercioMarkers(map: L.map, idestado, idmunicipio, actividad): void {
+   
+    this.dataApiService.getComercio(idestado, idmunicipio, actividad).subscribe((res: any) => {
+      for (const c of res) {
+        const lat = parseFloat(c.lat);
+        const lon = parseFloat(c.lng);
+        const marker = L.marker([lat, lon],
+          {
+            icon: L.icon({
+            iconSize: [ 25, 41 ],
+            iconAnchor: [ 13, 41 ],
+            iconUrl: 'assets/green.png',
+            shadowUrl: 'assets/marker-shadow.png'
+            })
+          }); 
+
+        marker.bindPopup(this.popupService.makeDenuesPopup(c));
+        marker.addTo(map);
+
+      }
+    });
+  }
+
+  makeHospitalMarkers(map: L.map, idestado, idmunicipio, actividad): void {
+   
+    this.dataApiService.getHospital(idestado, idmunicipio, actividad).subscribe((res: any) => {
+      for (const c of res) {
+        const lat = parseFloat(c.lat);
+        const lon = parseFloat(c.lng);
+        const marker = L.marker([lat, lon],
+          {
+            icon: L.icon({
+            iconSize: [ 25, 41 ],
+            iconAnchor: [ 13, 41 ],
+            iconUrl: 'assets/black.png',
+            shadowUrl: 'assets/marker-shadow.png'
+            })
+          }); 
+
+        marker.bindPopup(this.popupService.makeDenuesPopup(c));
+        marker.addTo(map);
+
+      }
+    });
+  }
+
   makeCapitalMarkers(map: L.map): void {
   
           this.http.get(this.capitals).subscribe((res: any) => {

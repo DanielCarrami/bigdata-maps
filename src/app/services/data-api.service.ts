@@ -4,8 +4,10 @@ import { Denues } from '../models/denues';
 import { Estados } from '../models/estados';
 import { Municipios } from '../models/municipios';
 import { Unidades } from '../models/unidades';
-
-import { Observable, throwError } from 'rxjs';
+import { Escuela } from '../models/escuela';
+import { Comercio } from '../models/comercio';
+import { Hospital } from '../models/hospital'; 
+import { Observable, throwError, from } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -15,7 +17,7 @@ export class DataApiService {
 
  
 
-  //apiURL = 'http://localhost:10010/';
+  //apiURL = 'http://localhost:8080/api/auth/';
   apiURL = 'http://104.198.244.0:8100/api/auth/';
   
   
@@ -67,6 +69,59 @@ export class DataApiService {
     )
   }   
 
+  getEscuelaCat(): Observable<Unidades>{
+    return this.http.get<Unidades>(this.apiURL + 'categoria_escuelas', this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getHospitalCat(): Observable<Unidades>{
+    return this.http.get<Unidades>(this.apiURL + 'categoria_hospitales', this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getComercioCat(): Observable<Unidades>{
+    return this.http.get<Unidades>(this.apiURL + 'categoria_comercios', this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getEscuela(idestado, idmunicipio, tipo): Observable<Escuela> {
+    console.log("escuelas: " + this.apiURL + idestado);
+    return this.http.get<Denues>(this.apiURL + 'escuelas?idestado=' + idestado +
+    '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }  
+
+  getComercio(idestado, idmunicipio, tipo): Observable<Comercio> {
+    console.log("comercio: " + this.apiURL + idestado);
+    return this.http.get<Denues>(this.apiURL + 'comercio?idestado=' + idestado +
+    '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }  
+
+  getHospital(idestado, idmunicipio, tipo): Observable<Hospital> {
+    console.log("hospital: " + this.apiURL + idestado);
+    return this.http.get<Denues>(this.apiURL + 'hospitales?idestado=' + idestado +
+    '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  } 
 
   getDenues(idestado, idmunicipio, tipo): Observable<Denues> {
     console.log("denues: " + this.apiURL + idestado);
