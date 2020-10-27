@@ -149,7 +149,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".map-container {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    margin: 30px;\n  }\n  \n  .map-frame {\n    border: 2px solid black;\n    height: 100%;\n  }\n  \n  #map {\n    height: 100%;\n  }"
+module.exports = ".map-container {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    margin-top: 120px;\n    margin-right: 20px;\n    margin-left: 20px;\n    margin-bottom: 20px;\n  }\n  \n  .map-frame {\n    border: 2px solid black;\n    height: 100%;\n  }\n  \n  #map {\n    height: 100%;\n  }"
 
 /***/ }),
 
@@ -160,7 +160,7 @@ module.exports = ".map-container {\n    position: absolute;\n    top: 0;\n    le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div> \n        \n  <label class=\"container\"> \n       <b> Estado </b>\n         \n       <select  name=\"selectedEstado\" id=\"selectedEstado\" [(ngModel)]=\"selectedEstado\" (change)=\"changeEstado();\">\n        <option *ngFor=\"let edo of arrEstados; let i = index\" [value]=\"edo.idestado\">\n          {{edo.estado}}\n        </option>\n      </select>\n     \n       <b> Municipio </b>\n       <select  name=\"selectedMunicipio\" id=\"selectedMunicipio\" [(ngModel)]=\"selectedMunicipio\" (change)=\"changeMunicipio()\">\n        <option *ngFor=\"let mun of arrMunicipios; let i = index\" [value]=\"mun.idmunicipio\">\n          {{mun.municipio}}\n        </option>\n      </select>\n\n      \n       <b> Unidad Economica </b>\n       <select  name=\"selectedUnidad\" id=\"selectedUnidad\" [(ngModel)]=\"selectedUnidad\">\n        <option *ngFor=\"let uni of arrActividades; let i = index\" [value]=\"uni.tipo\">\n          {{uni.descripcion}}\n        </option>\n      </select>\n      {{selectedUnidad}}\n      <button (click)=\"buscarDenues()\" type=”button”>Buscar</button>\n\n</label>\n</div>\n\n<div class=\"map-container\">\n  <div class=\"map-frame\">\n    <div id=\"map\"></div>\n  </div>\n</div>"
+module.exports = "<div> \n        \n  <label class=\"container\"> \n       <b> Estado </b>\n         \n       <select  name=\"selectedEstado\" id=\"selectedEstado\" [(ngModel)]=\"selectedEstado\" (change)=\"changeEstado();\">\n        <option *ngFor=\"let edo of arrEstados; let i = index\" [value]=\"edo.idestado\">\n          {{edo.estado}}\n        </option>\n      </select>\n     \n       <b> Municipio </b>\n       <select  name=\"selectedMunicipio\" id=\"selectedMunicipio\" [(ngModel)]=\"selectedMunicipio\" (change)=\"changeMunicipio()\">\n        <option *ngFor=\"let mun of arrMunicipios; let i = index\" [value]=\"mun.idmunicipio\">\n          {{mun.municipio}}\n        </option>\n      </select>\n\n      \n       <b> Unidad Economica </b>\n       <select  name=\"selectedUnidad\" id=\"selectedUnidad\" [(ngModel)]=\"selectedUnidad\">\n        <option *ngFor=\"let uni of arrActividades; let i = index\" [value]=\"uni.tipo\">\n          {{uni.descripcion}}\n        </option>\n      </select>\n      {{selectedUnidad}}\n      <button (click)=\"buscarDenues()\" type=”button”>Buscar</button>\n\n</label>\n</div>\n<div> \n        \n  <label class=\"container\"> \n       <b> Estado </b>\n         \n       <select  name=\"selectedEstadoEsc\" id=\"selectedEstadoEsc\" [(ngModel)]=\"selectedEstadoEsc\" (change)=\"changeEstadoEsc();\">\n        <option *ngFor=\"let edo of arrEstados; let i = index\" [value]=\"edo.idestado\">\n          {{edo.estado}}\n        </option>\n      </select>\n     \n       <b> Municipio </b>\n       <select  name=\"selectedMunicipioEsc\" id=\"selectedMunicipioEsc\" [(ngModel)]=\"selectedMunicipioEsc\" (change)=\"changeMunicipio()\">\n        <option *ngFor=\"let mun of arrMunicipiosEsc; let i = index\" [value]=\"mun.idmunicipio\">\n          {{mun.municipio}}\n        </option>\n      </select>\n\n      \n       <b> Institución Educativa </b>\n       <select  name=\"selectedCatEsc\" id=\"selectedCatEsc\" [(ngModel)]=\"selectedCatEsc\">\n        <option *ngFor=\"let uni of arrEscuelaCat; let i = index\" [value]=\"uni.tipo\">\n          {{uni.descripcion}}\n        </option>\n      </select>\n      {{selectedCatEsc}}\n      <button (click)=\"buscarEscuelas()\" type=”button”>Buscar</button>\n\n</label>\n</div>\n<div> \n        \n  <label class=\"container\"> \n       <b> Estado </b>\n         \n       <select  name=\"selectedEstadoCom\" id=\"selectedEstadoCom\" [(ngModel)]=\"selectedEstadoCom\" (change)=\"changeEstadoCom();\">\n        <option *ngFor=\"let edo of arrEstados; let i = index\" [value]=\"edo.idestado\">\n          {{edo.estado}}\n        </option>\n      </select>\n     \n       <b> Municipio </b>\n       <select  name=\"selectedMunicipioCom\" id=\"selectedMunicipioCom\" [(ngModel)]=\"selectedMunicipioCom\" (change)=\"changeMunicipio()\">\n        <option *ngFor=\"let mun of arrMunicipiosCom; let i = index\" [value]=\"mun.idmunicipio\">\n          {{mun.municipio}}\n        </option>\n      </select>\n\n      \n       <b> Categoria comercial </b>\n       <select  name=\"selectedCatCom\" id=\"selectedcatCom\" [(ngModel)]=\"selectedCatCom\">\n        <option *ngFor=\"let uni of arrComercioCat; let i = index\" [value]=\"uni.tipo\">\n          {{uni.descripcion}}\n        </option>\n      </select>\n      {{selectedCatCom}}\n      <button (click)=\"buscarComercios()\" type=”button”>Buscar</button>\n\n</label>\n</div>\n<div> \n        \n  <label class=\"container\"> \n       <b> Estado </b>\n         \n       <select  name=\"selectedEstadoHosp\" id=\"selectedEstadoHosp\" [(ngModel)]=\"selectedEstadoHosp\" (change)=\"changeEstadoHosp();\">\n        <option *ngFor=\"let edo of arrEstados; let i = index\" [value]=\"edo.idestado\">\n          {{edo.estado}}\n        </option>\n      </select>\n     \n       <b> Municipio </b>\n       <select  name=\"selectedMunicipioHosp\" id=\"selectedMunicipioHosp\" [(ngModel)]=\"selectedMunicipioHosp\" (change)=\"changeMunicipio()\">\n        <option *ngFor=\"let mun of arrMunicipiosHosp; let i = index\" [value]=\"mun.idmunicipio\">\n          {{mun.municipio}}\n        </option>\n      </select>\n\n      \n       <b> Servicio de salud </b>\n       <select  name=\"selectedCatHosp\" id=\"selectedCatHosp\" [(ngModel)]=\"selectedCatHosp\">\n        <option *ngFor=\"let uni of arrHospitalCat; let i = index\" [value]=\"uni.tipo\">\n          {{uni.descripcion}}\n        </option>\n      </select>\n      {{selectedCatHosp}}\n      <button (click)=\"buscarHospital()\" type=”button”>Buscar</button>\n\n</label>\n</div>\n<div class=\"map-container\">\n  <div class=\"map-frame\">\n    <div id=\"map\"></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -212,13 +212,25 @@ var MapComponent = /** @class */ (function () {
         this.dataApiService = dataApiService;
         this.arrEstados = [];
         this.arrMunicipios = [];
+        this.arrMunicipiosEsc = [];
+        this.arrMunicipiosHosp = [];
+        this.arrMunicipiosCom = [];
         this.arrActividades = [];
+        this.arrEscuelaCat = [];
+        this.arrEscuelas = [];
+        this.arrComercioCat = [];
+        this.arrComercio = [];
+        this.arrHospitalCat = [];
+        this.arrHospital = [];
     }
     MapComponent.prototype.ngAfterViewInit = function () {
         this.initMap();
         //this.markerService.makeCapitalMarkers(this.map);
         this.getEstados();
         this.getUnidades();
+        this.getEscuelaCat();
+        this.getComercioCat();
+        this.getHospitalCat();
     };
     MapComponent.prototype.initMap = function () {
         this.map = leaflet__WEBPACK_IMPORTED_MODULE_1__["map"]('map', {
@@ -243,11 +255,50 @@ var MapComponent = /** @class */ (function () {
             _this.arrActividades = unidades.content;
         });
     };
+    MapComponent.prototype.getEscuelaCat = function () {
+        var _this = this;
+        this.dataApiService.getEscuelaCat().subscribe(function (unidades) {
+            _this.arrEscuelaCat = unidades.content;
+        });
+    };
+    MapComponent.prototype.getComercioCat = function () {
+        var _this = this;
+        this.dataApiService.getComercioCat().subscribe(function (unidades) {
+            _this.arrComercioCat = unidades.content;
+        });
+    };
+    MapComponent.prototype.getHospitalCat = function () {
+        var _this = this;
+        this.dataApiService.getHospitalCat().subscribe(function (unidades) {
+            _this.arrHospitalCat = unidades.content;
+        });
+    };
     MapComponent.prototype.changeEstado = function () {
         var _this = this;
         this.dataApiService.getMunicipios(this.selectedEstado)
             .subscribe(function (municipios) {
             _this.arrMunicipios = municipios;
+        });
+    };
+    MapComponent.prototype.changeEstadoEsc = function () {
+        var _this = this;
+        this.dataApiService.getMunicipios(this.selectedEstadoEsc)
+            .subscribe(function (municipios) {
+            _this.arrMunicipiosEsc = municipios;
+        });
+    };
+    MapComponent.prototype.changeEstadoCom = function () {
+        var _this = this;
+        this.dataApiService.getMunicipios(this.selectedEstadoCom)
+            .subscribe(function (municipios) {
+            _this.arrMunicipiosCom = municipios;
+        });
+    };
+    MapComponent.prototype.changeEstadoHosp = function () {
+        var _this = this;
+        this.dataApiService.getMunicipios(this.selectedEstadoHosp)
+            .subscribe(function (municipios) {
+            _this.arrMunicipiosHosp = municipios;
         });
     };
     MapComponent.prototype.changeMunicipio = function () {
@@ -257,6 +308,18 @@ var MapComponent = /** @class */ (function () {
     };
     MapComponent.prototype.buscarDenues = function () {
         this.markerService.makeDenuesMarkers(this.map, this.selectedEstado, this.selectedMunicipio, this.selectedUnidad);
+    };
+    MapComponent.prototype.buscarEscuelas = function () {
+        this.markerService.makeEscuelasMarkers(this.map, this.selectedEstadoEsc, this.selectedMunicipioEsc, this.selectedCatEsc);
+    };
+    MapComponent.prototype.buscarComercios = function () {
+        this.markerService.makeComercioMarkers(this.map, this.selectedEstadoCom, this.selectedMunicipioCom, this.selectedCatCom);
+    };
+    MapComponent.prototype.buscarHospital = function () {
+        console.log("Estado: " + this.selectedEstadoHosp);
+        console.log("Municipio: " + this.selectedMunicipioHosp);
+        console.log("Cat: " + this.selectedCatHosp);
+        this.markerService.makeHospitalMarkers(this.map, this.selectedEstadoHosp, this.selectedMunicipioHosp, this.selectedCatHosp);
     };
     MapComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -304,7 +367,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var DataApiService = /** @class */ (function () {
     function DataApiService(http) {
         this.http = http;
-        //apiURL = 'http://localhost:10010/';
+        //apiURL = 'http://localhost:8080/api/auth/';
         this.apiURL = 'http://104.198.244.0:8100/api/auth/';
         /*========================================
           CRUD Methods for consuming RESTful API
@@ -330,6 +393,36 @@ var DataApiService = /** @class */ (function () {
     DataApiService.prototype.getUnidades = function () {
         console.log("empresas: " + this.apiURL);
         return this.http.get(this.apiURL + 'categorias', this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getEscuelaCat = function () {
+        return this.http.get(this.apiURL + 'categoria_escuelas', this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getHospitalCat = function () {
+        return this.http.get(this.apiURL + 'categoria_hospitales', this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getComercioCat = function () {
+        return this.http.get(this.apiURL + 'categoria_comercios', this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getEscuela = function (idestado, idmunicipio, tipo) {
+        console.log("escuelas: " + this.apiURL + idestado);
+        return this.http.get(this.apiURL + 'escuelas?idestado=' + idestado +
+            '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getComercio = function (idestado, idmunicipio, tipo) {
+        console.log("comercio: " + this.apiURL + idestado);
+        return this.http.get(this.apiURL + 'comercio?idestado=' + idestado +
+            '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
+    };
+    DataApiService.prototype.getHospital = function (idestado, idmunicipio, tipo) {
+        console.log("hospital: " + this.apiURL + idestado);
+        return this.http.get(this.apiURL + 'hospitales?idestado=' + idestado +
+            '&idmunicipio=' + idmunicipio + '&tipo=' + tipo, this.httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError));
     };
     DataApiService.prototype.getDenues = function (idestado, idmunicipio, tipo) {
@@ -420,6 +513,66 @@ var MarkerService = /** @class */ (function () {
                 marker.bindPopup(_this.popupService.makeDenuesPopup(c));
                 marker.addTo(map);
                 //.addTo(map);
+            }
+        });
+    };
+    MarkerService.prototype.makeEscuelasMarkers = function (map, idestado, idmunicipio, actividad) {
+        var _this = this;
+        this.dataApiService.getEscuela(idestado, idmunicipio, actividad).subscribe(function (res) {
+            for (var _i = 0, res_2 = res; _i < res_2.length; _i++) {
+                var c = res_2[_i];
+                var lat = parseFloat(c.lat);
+                var lon = parseFloat(c.lng);
+                var marker = leaflet__WEBPACK_IMPORTED_MODULE_4__["marker"]([lat, lon], {
+                    icon: leaflet__WEBPACK_IMPORTED_MODULE_4__["icon"]({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: 'assets/blue.png',
+                        shadowUrl: 'assets/marker-shadow.png'
+                    })
+                });
+                marker.bindPopup(_this.popupService.makeDenuesPopup(c));
+                marker.addTo(map);
+            }
+        });
+    };
+    MarkerService.prototype.makeComercioMarkers = function (map, idestado, idmunicipio, actividad) {
+        var _this = this;
+        this.dataApiService.getComercio(idestado, idmunicipio, actividad).subscribe(function (res) {
+            for (var _i = 0, res_3 = res; _i < res_3.length; _i++) {
+                var c = res_3[_i];
+                var lat = parseFloat(c.lat);
+                var lon = parseFloat(c.lng);
+                var marker = leaflet__WEBPACK_IMPORTED_MODULE_4__["marker"]([lat, lon], {
+                    icon: leaflet__WEBPACK_IMPORTED_MODULE_4__["icon"]({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: 'assets/green.png',
+                        shadowUrl: 'assets/marker-shadow.png'
+                    })
+                });
+                marker.bindPopup(_this.popupService.makeDenuesPopup(c));
+                marker.addTo(map);
+            }
+        });
+    };
+    MarkerService.prototype.makeHospitalMarkers = function (map, idestado, idmunicipio, actividad) {
+        var _this = this;
+        this.dataApiService.getHospital(idestado, idmunicipio, actividad).subscribe(function (res) {
+            for (var _i = 0, res_4 = res; _i < res_4.length; _i++) {
+                var c = res_4[_i];
+                var lat = parseFloat(c.lat);
+                var lon = parseFloat(c.lng);
+                var marker = leaflet__WEBPACK_IMPORTED_MODULE_4__["marker"]([lat, lon], {
+                    icon: leaflet__WEBPACK_IMPORTED_MODULE_4__["icon"]({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: 'assets/black.png',
+                        shadowUrl: 'assets/marker-shadow.png'
+                    })
+                });
+                marker.bindPopup(_this.popupService.makeDenuesPopup(c));
+                marker.addTo(map);
             }
         });
     };
